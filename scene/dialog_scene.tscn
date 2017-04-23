@@ -145,7 +145,7 @@ _update_shape_index = 0
 [node name="character_2" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 649.573, 523.47 )
-transform/scale = Vector2( 0.161709, 0.161709 )
+transform/scale = Vector2( -0.161709, 0.161709 )
 
 [connection signal="area_enter" from="stop_point" to="." method="_on_stop_point_area_enter"]
 

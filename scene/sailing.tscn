@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://script/sailing.gd" type="Script" id=1]
 [ext_resource path="res://img/background.png" type="Texture" id=2]
 [ext_resource path="res://img/wave_fg.png" type="Texture" id=3]
 [ext_resource path="res://img/boat.png" type="Texture" id=4]
 [ext_resource path="res://img/wave_bg.png" type="Texture" id=5]
+[ext_resource path="res://img/title_text.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -53,7 +54,7 @@ tracks/3/keys = {
 "values": [ 0.0, -2.2 ]
 }
 
-[node name="root" type="Node2D"]
+[node name="main_menu" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
@@ -101,15 +102,20 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 509.0
-margin/top = 516.0
-margin/right = 567.0
-margin/bottom = 536.0
+margin/left = 386.0
+margin/top = 529.0
+margin/right = 685.0
+margin/bottom = 557.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Lets go"
+text = "Lets go on a short adventure"
 flat = false
+
+[node name="title" type="Sprite" parent="."]
+
+transform/pos = Vector2( 321.049, 93.8659 )
+texture = ExtResource( 6 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 

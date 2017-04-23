@@ -30,8 +30,7 @@ func _on_stop_point_area_enter( area ):
 		d1.should_play();
 	pass # replace with function body
 
-func _on_dialog_1_complete():
-	get_node("character_2").start_waving()
+func _on_dialog_1_complete():	
 	d1.cleanup(1)
 
 # DIALOG 2
@@ -43,6 +42,7 @@ func _on_dialog_1_removed():
 	d2.set_text("oh hello!\n\nwhere did you come from?")	
 	add_child(d2)
 	d2.should_play();
+	get_node("character_2").start_waving()
 
 func _on_dialog_2_complete():
 	d2.cleanup(1)
@@ -53,7 +53,8 @@ func _on_dialog_2_removed():
 	d3.set_position(Vector2(150, 150))
 	d3.connect("dialog_complete", self, "_on_dialog_3_complete")
 	d3.connect("dialog_removed", self, "_on_dialog_3_removed")
-	d3.set_text("oh, just from that island over there!")	
+	d3.set_text("oh, just from that tiny island over there!" +
+	"\n\nI always wanted to visit but kept putting it off")
 	add_child(d3)
 	d3.should_play();
 
@@ -65,7 +66,8 @@ func _on_dialog_3_removed():
 	d4.set_position(Vector2(450, 150))
 	d4.connect("dialog_complete", self, "_on_dialog_4_complete")
 	# d4.connect("dialog_removed", self, "_on_dialog_3_removed")
-	d4.set_text("oh wow, we do live in a small world")
+	d4.set_text("oh wow, glad you came" +
+	"\n\nwe do live in a small world, come join us for a meal")
 	add_child(d4)
 	d4.should_play();
 
