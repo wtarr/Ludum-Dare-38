@@ -1,0 +1,60 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://script/character_1.gd" type="Script" id=1]
+[ext_resource path="res://img/wave1.png" type="Texture" id=2]
+[ext_resource path="res://img/wave6.png" type="Texture" id=3]
+[ext_resource path="res://img/wave11.png" type="Texture" id=4]
+[ext_resource path="res://img/wave16.png" type="Texture" id=5]
+[ext_resource path="res://img/wave21.png" type="Texture" id=6]
+[ext_resource path="res://img/wave26.png" type="Texture" id=7]
+[ext_resource path="res://img/walk_1.png" type="Texture" id=8]
+[ext_resource path="res://img/walk_6.png" type="Texture" id=9]
+[ext_resource path="res://img/walk_11.png" type="Texture" id=10]
+[ext_resource path="res://img/walk_16.png" type="Texture" id=11]
+[ext_resource path="res://img/walk_21.png" type="Texture" id=12]
+[ext_resource path="res://img/walk_26.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 86.6621, 205.829 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "wave",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[node name="character" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+should_walk = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+

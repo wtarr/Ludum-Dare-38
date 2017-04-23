@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://script/sailing.gd" type="Script" id=1]
+[ext_resource path="res://img/background.png" type="Texture" id=2]
+[ext_resource path="res://img/wave_fg.png" type="Texture" id=3]
+[ext_resource path="res://img/boat.png" type="Texture" id=4]
+[ext_resource path="res://img/wave_bg.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "wave_bg_osc"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("wave_bg:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 505, 348 ), Vector2( 545.584, 348.918 ), Vector2( 505, 348 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("wave_fg:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1, 2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 516, 298.728 ), Vector2( 530, 298.728 ), Vector2( 516, 298.728 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("boat:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 503.012, 375.021 ), Vector2( 507.094, 400.868 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("boat:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.2 ]
+}
+
+[node name="root" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/wave_bg_osc = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "wave_bg_osc"
+
+[node name="sky" type="Sprite" parent="."]
+
+transform/pos = Vector2( 485.943, 294.185 )
+transform/scale = Vector2( 1.14783, 1.14783 )
+texture = ExtResource( 2 )
+
+[node name="wave_fg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 521.833, 298.728 )
+transform/scale = Vector2( 1.17656, 1.17656 )
+texture = ExtResource( 3 )
+
+[node name="boat" type="Sprite" parent="."]
+
+transform/pos = Vector2( 504.713, 385.79 )
+transform/rot = -0.916614
+texture = ExtResource( 4 )
+
+[node name="wave_bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 521.909, 348.382 )
+transform/scale = Vector2( 1.16524, 1.16524 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 509.0
+margin/top = 516.0
+margin/right = 567.0
+margin/bottom = 536.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Lets go"
+flat = false
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+

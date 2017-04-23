@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://img/1px.png" type="Texture" id=1]
+[ext_resource path="res://script/dialog.gd" type="Script" id=2]
+
+[node name="dialog" type="TextureFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 345.0
+margin/bottom = 136.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+script/script = ExtResource( 2 )
+panelSize = Vector2( 310, 110 )
+coolDownBetweenCharacters = 0.1
+shouldPlay = false
+
+[node name="r_text" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 3.0
+margin/right = 339.0
+margin/bottom = 130.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+
+
